@@ -5,6 +5,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+//variable que indica si el entorno esta en modo produccion o desarrollo
+const devMode = process.env.NODE_ENV !== 'production';
+
+console.log(devMode)
+
 module.exports = {
 
     //Los archivos de entrada que se van a convertir
@@ -41,7 +46,7 @@ module.exports = {
 
                 //se van a cargar con los modulos style-loader y css-loader
                 use: [
-                        'style-loader',
+                        devMode ? 'style-loader': MiniCssExtractPlugin.loader,
                         'css-loader'
                 ]
             }
