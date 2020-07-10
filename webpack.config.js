@@ -14,6 +14,7 @@ module.exports = {
 
     //Los archivos de entrada que se van a convertir
     entry: [
+        '@babel/polyfill',
         './src/app/index.js'
     ],
 
